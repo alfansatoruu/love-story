@@ -1,0 +1,200 @@
+/* Parallax Section Container */
+.parallax__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* SVG Container Styles */
+  .svg-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .osmo-icon-svg {
+    z-index: 5;
+    width: 39em;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    fill: hsla(0, 0%, 0%, 0.276);
+    stroke: hsla(0, 0%, 10%, 0);
+    stroke-width: 2;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: 
+      changeColor 5s infinite alternate,
+      dashAnimation 10s infinite alternate;
+  }
+  
+  @keyframes changeColor {
+    0% { fill: black; stroke: white; }
+    50% { fill: white; stroke: black; }
+    100% { fill: black; stroke: white; }
+  }
+  
+  @keyframes dashAnimation {
+    0% {
+      stroke-dasharray: 0 50%;
+      stroke-dashoffset: 20%;
+      fill: hsla(208, 53%, 52%, 0.053);
+    }
+    100% {
+      stroke-dasharray: 50% 0;
+      stroke-dashoffset: -20%;
+      fill: hsla(208, 53%, 52%, 0.283);
+    }
+  }
+  
+  /* Timeline General Styles */
+  .timeline {
+    z-index: -1;
+    bottom: 60px;
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 60px 0;
+  }
+  
+  .timeline-container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Timeline Vertical Line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, 
+      rgba(255, 255, 255, 0.1) 0%, 
+      rgba(83, 147, 216, 0.6) 50%, 
+      rgba(255, 255, 255, 0.1) 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  /* Timeline Items */
+  .timeline-item {
+    position: relative;
+    width: 50%;
+    margin: 40px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .timeline-item-left { 
+    left: 0; 
+    padding-right: 15%;
+  }
+  
+  .timeline-item-right { 
+    left: 50%; 
+    padding-left: 15%;
+  }
+  
+  /* Timeline Content */
+  .timeline-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Timeline Icons */
+  .timeline-svg {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 8px;
+    flex-shrink: 0;
+    order: 1;
+    fill: rgb(6, 66, 247);
+    stroke: white;
+  }
+  
+  .timeline-item-right .timeline-svg {
+    order: 2;
+  }
+  
+  .timeline-text {
+    flex: 1;
+    color: white;
+  }
+  
+  .timeline-title {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .timeline-description {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    font-size: 1em;
+  }
+  
+  /* Timeline Markers */
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(83, 147, 216, 0.8);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  
+  .timeline-item-left::after { 
+    right: -10px;
+    left: auto;
+  }
+  
+  .timeline-item-right::after { 
+    left: -10px;
+    right: auto;
+  }
+  
+  /* Animations */
+  .parallax__content .svg-container,
+  .timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .parallax__content.aktif .svg-container,
+  .timeline-item.aktif {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .timeline-item {
+    transition-delay: calc(var(--index) * 0.2s);
+  }
+  

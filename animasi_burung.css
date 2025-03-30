@@ -1,0 +1,17 @@
+@keyframes birdsFlying {
+    0% {
+      left: 100vw;
+    }
+    100% {
+      left: -200vw;
+    }
+  }
+  
+  #birdsContainer {
+    position: absolute;
+    top: 10vw;
+    left: 100vw; /* Ensures animation starts from the right */
+    animation: birdsFlying 30s linear infinite;
+    z-index: 1; /* Ensures birds are visible */
+  }
+  

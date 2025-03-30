@@ -1,0 +1,35 @@
+.angsa {
+    position: absolute;
+    
+    left: 50%;
+    z-index: 11;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    animation: float 3s ease-in-out infinite;
+    /* Tambahkan properti berikut untuk SVG */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.153));
+}
+
+.angsa svg {
+    width: 100%;
+    height: 100%;
+    fill: #ff3366; /* Warna hati */
+    transition: all 0.3s ease;
+}
+
+/* Animasi */
+@keyframes float {
+    0%, 100% { 
+        transform: translate(-50%, 0); 
+    }
+    50% { 
+        transform: translate(-50%, -10px); 
+    }
+}
+
+/* Optional hover effect */
+.angsa svg {
+    fill: #ff1493;
+    filter: drop-shadow(0 0 15px rgba(163, 161, 161, 0.8));
+}

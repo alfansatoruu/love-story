@@ -1,0 +1,50 @@
+.kotak {
+    z-index: 10;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .kotak:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+  
+  .icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    fill: #5393d8;
+    filter: drop-shadow(0 0 8px rgba(83, 147, 216, 0.4));
+  }
+  
+  .text-container {
+    text-align: center;
+    color: white;
+  }
+  
+  .title {
+    font-size: 1.1em;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .description {
+    font-size: 0.9em;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+  
