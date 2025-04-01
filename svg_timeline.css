@@ -85,6 +85,11 @@
 
 
 @import 'https://fonts.googleapis.com/css?family=Catamaran';
+
+
+
+
+
 html, body {
   width: 100%;
   height: 100%;
@@ -136,6 +141,18 @@ h1 {
   font-size: 3rem;
   margin: 0;
   padding: 0;
+}
+p {
+  margin: 0 0 15px;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+p.active {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .block {
