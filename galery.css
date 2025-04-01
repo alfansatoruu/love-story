@@ -34,6 +34,7 @@
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transform-origin: center center;
     backface-visibility: hidden;
+    transition: transform 0.3s ease-out;
   }
   
   /* Position the first 4 images in a curved pattern - static display */
@@ -85,6 +86,7 @@
   @media screen and (max-width: 991px) {
     .curved-carousel {
       height: 250px;
+      max-width: 95%;
     }
     
     .carousel-track img {
@@ -109,65 +111,103 @@
     }
   }
   
-  /* Small tablets and large phones */
+  /* Small tablets and landscape phones */
   @media screen and (max-width: 767px) {
     .curved-carousel {
       height: 220px;
+      perspective: 900px;
     }
     
     .carousel-track img {
-      width: 160px;
-      height: 120px;
+      width: 170px;
+      height: 130px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     }
     
     .carousel-track img:nth-child(1) {
-      transform: translateX(-200px) rotateY(25deg);
+      transform: translateX(-220px) rotateY(20deg);
     }
     
     .carousel-track img:nth-child(2) {
-      transform: translateX(-70px) rotateY(15deg);
+      transform: translateX(-75px) rotateY(10deg);
     }
     
     .carousel-track img:nth-child(3) {
-      transform: translateX(70px) rotateY(-15deg);
+      transform: translateX(75px) rotateY(-10deg);
     }
     
     .carousel-track img:nth-child(4) {
-      transform: translateX(200px) rotateY(-25deg);
+      transform: translateX(220px) rotateY(-20deg);
     }
     
     .curved-carousel::before {
-      font-size: 20px;
+      font-size: 22px;
       top: -50px;
     }
   }
   
-  /* Mobile phones */
-  @media screen and (max-width: 479px) {
+  /* Portrait tablets and large phones */
+  @media screen and (max-width: 576px) {
     .curved-carousel {
-      height: 190px;
+      height: 200px;
       perspective: 800px;
+    }
+    
+    .carousel-track img {
+      width: 140px;
+      height: 110px;
+      border-width: 1.5px;
+    }
+    
+    .carousel-track img:nth-child(1) {
+      transform: translateX(-160px) rotateY(22deg);
+    }
+    
+    .carousel-track img:nth-child(2) {
+      transform: translateX(-55px) rotateY(12deg);
+    }
+    
+    .carousel-track img:nth-child(3) {
+      transform: translateX(55px) rotateY(-12deg);
+    }
+    
+    .carousel-track img:nth-child(4) {
+      transform: translateX(160px) rotateY(-22deg);
+    }
+    
+    .curved-carousel::before {
+      font-size: 20px;
+      top: -45px;
+    }
+  }
+  
+  /* Mobile phones */
+  @media screen and (max-width: 480px) {
+    .curved-carousel {
+      height: 180px;
+      perspective: 700px;
     }
     
     .carousel-track img {
       width: 120px;
       height: 90px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     }
     
     .carousel-track img:nth-child(1) {
-      transform: translateX(-140px) rotateY(25deg);
+      transform: translateX(-130px) rotateY(18deg);
     }
     
     .carousel-track img:nth-child(2) {
-      transform: translateX(-50px) rotateY(15deg);
+      transform: translateX(-45px) rotateY(10deg);
     }
     
     .carousel-track img:nth-child(3) {
-      transform: translateX(50px) rotateY(-15deg);
+      transform: translateX(45px) rotateY(-10deg);
     }
     
     .carousel-track img:nth-child(4) {
-      transform: translateX(140px) rotateY(-25deg);
+      transform: translateX(130px) rotateY(-18deg);
     }
     
     .curved-carousel::before {
@@ -177,30 +217,37 @@
   }
   
   /* Small mobile phones */
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 360px) {
     .curved-carousel {
       height: 160px;
+      perspective: 600px;
     }
     
     .carousel-track img {
       width: 100px;
       height: 75px;
       border-width: 1px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     }
     
     .carousel-track img:nth-child(1) {
-      transform: translateX(-110px) rotateY(20deg);
+      transform: translateX(-105px) rotateY(15deg);
     }
     
     .carousel-track img:nth-child(2) {
-      transform: translateX(-40px) rotateY(10deg);
+      transform: translateX(-35px) rotateY(8deg);
     }
     
     .carousel-track img:nth-child(3) {
-      transform: translateX(40px) rotateY(-10deg);
+      transform: translateX(35px) rotateY(-8deg);
     }
     
     .carousel-track img:nth-child(4) {
-      transform: translateX(110px) rotateY(-20deg);
+      transform: translateX(105px) rotateY(-15deg);
+    }
+    
+    .curved-carousel::before {
+      font-size: 16px;
+      top: -35px;
     }
   }
