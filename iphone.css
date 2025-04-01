@@ -1,0 +1,271 @@
+.iphone {
+    position: absolute;
+    left: 20%;
+    top: 408px;
+    width: 180px;
+    z-index: 12;
+    height: 350px;
+    background: #898686;
+    border-radius: 40px;
+    box-shadow: 0 0 50px rgba(142, 140, 140, 0.3);
+    padding: 7px;
+}
+
+.screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: url('gambar/gojo.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+/* Status Bar */
+.status-bar {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+    z-index: 5;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+}
+
+.time {
+    font-weight: bold;
+}
+
+.status-icons {
+    display: flex;
+    gap: 5px;
+}
+
+.signal, .wifi, .battery {
+    width: 15px;
+    height: 10px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.camera-notch {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 20px;
+    background: #43414156;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.camera {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #9e9898;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.volume-btn {
+    position: absolute;
+    left: -5px;
+    top: 100px;
+    width: 5px;
+    height: 60px;
+    background: #898686;
+    border-radius: 10px 0 0 10px;
+}
+
+.power-btn {
+    position: absolute;
+    right: -5px;
+    top: 80px;
+    width: 5px;
+    height: 80px;
+    background: #898686;
+    border-radius: 0 10px 10px 0;
+}
+
+.speaker {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 5px;
+    background: #333;
+    border-radius: 3px;
+    z-index: 3;
+}
+
+/* Notification */
+.notification {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    right: 10px;
+    height: 60px;
+    background-color: rgba(103, 100, 100, 0.669);
+    border-radius: 12px;
+    display: flex;
+    padding: 10px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-100px);
+    animation: notificationCycle 60s infinite;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+@keyframes notificationCycle {
+    /* First notification appears at 0s */
+    0% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    1% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    10% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    11% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    
+    /* Second notification appears at 20s */
+    20% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    21% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    30% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    31% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    
+    /* Third notification appears at 40s */
+    40% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    41% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(0);
+        opacity: 1;
+    }
+    51% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    
+    /* Stay hidden until the next cycle */
+    100% { 
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+}
+
+.notification-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    margin-right: 10px;
+}
+
+.notification-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.notification-title {
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+}
+
+.notification-message {
+    font-size: 7px;
+    font-family: Arial, sans-serif;
+    color: #979595;
+}
+
+.notification-time {
+    font-size: 7px;
+    color: #666;
+    font-family: Arial, sans-serif;
+}
+
+/* Efek getaran saat notifikasi muncul */
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-2px); }
+    20% { transform: translateX(2px); }
+    30% { transform: translateX(-2px); }
+    40% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    60% { transform: translateX(2px); }
+    70% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+    90% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+.iphone.vibrate {
+    animation: vibrate 0.3s linear;
+}
