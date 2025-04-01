@@ -1,0 +1,206 @@
+.container-galery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .curved-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 300px;
+    overflow: visible;
+    perspective: 1000px;
+  }
+  
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+  }
+  
+  .carousel-track img {
+    position: absolute;
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transform-origin: center center;
+    backface-visibility: hidden;
+  }
+  
+  /* Position the first 4 images in a curved pattern - static display */
+  .carousel-track img:nth-child(1) {
+    transform: translateX(-360px) rotateY(25deg);
+    z-index: 1;
+  }
+  
+  .carousel-track img:nth-child(2) {
+    transform: translateX(-120px) rotateY(15deg);
+    z-index: 2;
+  }
+  
+  .carousel-track img:nth-child(3) {
+    transform: translateX(120px) rotateY(-15deg);
+    z-index: 2;
+  }
+  
+  .carousel-track img:nth-child(4) {
+    transform: translateX(360px) rotateY(-25deg);
+    z-index: 1;
+  }
+  
+  /* Hide other images */
+  .carousel-track img:nth-child(n+5) {
+    display: none;
+  }
+  
+  /* Add title at the top */
+  .curved-carousel::before {
+    position: absolute;
+    top: -60px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    content: "Gallery";
+  }
+  
+  /* Large desktop screens */
+  @media screen and (max-width: 1200px) {
+    .curved-carousel {
+      max-width: 90%;
+    }
+  }
+  
+  /* Medium screens - tablets and small desktops */
+  @media screen and (max-width: 991px) {
+    .curved-carousel {
+      height: 250px;
+    }
+    
+    .carousel-track img {
+      width: 200px;
+      height: 150px;
+    }
+    
+    .carousel-track img:nth-child(1) {
+      transform: translateX(-280px) rotateY(25deg);
+    }
+    
+    .carousel-track img:nth-child(2) {
+      transform: translateX(-95px) rotateY(15deg);
+    }
+    
+    .carousel-track img:nth-child(3) {
+      transform: translateX(95px) rotateY(-15deg);
+    }
+    
+    .carousel-track img:nth-child(4) {
+      transform: translateX(280px) rotateY(-25deg);
+    }
+  }
+  
+  /* Small tablets and large phones */
+  @media screen and (max-width: 767px) {
+    .curved-carousel {
+      height: 220px;
+    }
+    
+    .carousel-track img {
+      width: 160px;
+      height: 120px;
+    }
+    
+    .carousel-track img:nth-child(1) {
+      transform: translateX(-200px) rotateY(25deg);
+    }
+    
+    .carousel-track img:nth-child(2) {
+      transform: translateX(-70px) rotateY(15deg);
+    }
+    
+    .carousel-track img:nth-child(3) {
+      transform: translateX(70px) rotateY(-15deg);
+    }
+    
+    .carousel-track img:nth-child(4) {
+      transform: translateX(200px) rotateY(-25deg);
+    }
+    
+    .curved-carousel::before {
+      font-size: 20px;
+      top: -50px;
+    }
+  }
+  
+  /* Mobile phones */
+  @media screen and (max-width: 479px) {
+    .curved-carousel {
+      height: 190px;
+      perspective: 800px;
+    }
+    
+    .carousel-track img {
+      width: 120px;
+      height: 90px;
+    }
+    
+    .carousel-track img:nth-child(1) {
+      transform: translateX(-140px) rotateY(25deg);
+    }
+    
+    .carousel-track img:nth-child(2) {
+      transform: translateX(-50px) rotateY(15deg);
+    }
+    
+    .carousel-track img:nth-child(3) {
+      transform: translateX(50px) rotateY(-15deg);
+    }
+    
+    .carousel-track img:nth-child(4) {
+      transform: translateX(140px) rotateY(-25deg);
+    }
+    
+    .curved-carousel::before {
+      font-size: 18px;
+      top: -40px;
+    }
+  }
+  
+  /* Small mobile phones */
+  @media screen and (max-width: 320px) {
+    .curved-carousel {
+      height: 160px;
+    }
+    
+    .carousel-track img {
+      width: 100px;
+      height: 75px;
+      border-width: 1px;
+    }
+    
+    .carousel-track img:nth-child(1) {
+      transform: translateX(-110px) rotateY(20deg);
+    }
+    
+    .carousel-track img:nth-child(2) {
+      transform: translateX(-40px) rotateY(10deg);
+    }
+    
+    .carousel-track img:nth-child(3) {
+      transform: translateX(40px) rotateY(-10deg);
+    }
+    
+    .carousel-track img:nth-child(4) {
+      transform: translateX(110px) rotateY(-20deg);
+    }
+  }

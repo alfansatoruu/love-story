@@ -111,7 +111,7 @@
     z-index: 3;
 }
 
-/* Notification */
+/* Enhanced Notification */
 .notification {
     position: absolute;
     top: 50px;
@@ -127,12 +127,17 @@
     opacity: 0;
     transform: translateY(-100px);
     animation: notificationCycle 60s infinite;
+    transition: transform 0.3s ease-out, opacity 0.3s ease; /* Added transition for smoother animation */
 }
 
 @keyframes slideIn {
     0% {
         transform: translateY(-100px);
         opacity: 0;
+    }
+    70% {
+        transform: translateY(5px); /* Added bounce effect */
+        opacity: 0.9;
     }
     100% {
         transform: translateY(0);
@@ -144,6 +149,10 @@
     0% {
         transform: translateY(0);
         opacity: 1;
+    }
+    30% {
+        transform: translateY(-10px); /* Smoother departure */
+        opacity: 0.7;
     }
     100% {
         transform: translateY(-100px);
@@ -158,6 +167,14 @@
         opacity: 0;
     }
     1% { 
+        transform: translateY(-50px); /* Added intermediate position */
+        opacity: 0.5;
+    }
+    2% {
+        transform: translateY(5px); /* Added bounce effect */
+        opacity: 0.9;
+    }
+    3% {
         transform: translateY(0);
         opacity: 1;
     }
@@ -166,6 +183,10 @@
         opacity: 1;
     }
     11% { 
+        transform: translateY(-10px); /* Smoother departure */
+        opacity: 0.7;
+    }
+    12% {
         transform: translateY(-100px);
         opacity: 0;
     }
@@ -176,6 +197,14 @@
         opacity: 0;
     }
     21% { 
+        transform: translateY(-50px); /* Added intermediate position */
+        opacity: 0.5;
+    }
+    22% {
+        transform: translateY(5px); /* Added bounce effect */
+        opacity: 0.9;
+    }
+    23% {
         transform: translateY(0);
         opacity: 1;
     }
@@ -184,6 +213,10 @@
         opacity: 1;
     }
     31% { 
+        transform: translateY(-10px); /* Smoother departure */
+        opacity: 0.7;
+    }
+    32% {
         transform: translateY(-100px);
         opacity: 0;
     }
@@ -194,6 +227,14 @@
         opacity: 0;
     }
     41% { 
+        transform: translateY(-50px); /* Added intermediate position */
+        opacity: 0.5;
+    }
+    42% {
+        transform: translateY(5px); /* Added bounce effect */
+        opacity: 0.9;
+    }
+    43% {
         transform: translateY(0);
         opacity: 1;
     }
@@ -202,6 +243,10 @@
         opacity: 1;
     }
     51% { 
+        transform: translateY(-10px); /* Smoother departure */
+        opacity: 0.7;
+    }
+    52% {
         transform: translateY(-100px);
         opacity: 0;
     }
@@ -251,21 +296,147 @@
     font-family: Arial, sans-serif;
 }
 
-/* Efek getaran saat notifikasi muncul */
+/* Enhanced vibration effect */
 @keyframes vibrate {
-    0% { transform: translateX(0); }
-    10% { transform: translateX(-2px); }
-    20% { transform: translateX(2px); }
-    30% { transform: translateX(-2px); }
-    40% { transform: translateX(2px); }
-    50% { transform: translateX(-2px); }
-    60% { transform: translateX(2px); }
-    70% { transform: translateX(-2px); }
-    80% { transform: translateX(2px); }
-    90% { transform: translateX(-2px); }
-    100% { transform: translateX(0); }
+    0% { transform: translateX(0) translateY(0); }
+    10% { transform: translateX(-2px) translateY(-1px); }
+    20% { transform: translateX(2px) translateY(1px); }
+    30% { transform: translateX(-2px) translateY(0); }
+    40% { transform: translateX(2px) translateY(-1px); }
+    50% { transform: translateX(-2px) translateY(1px); }
+    60% { transform: translateX(2px) translateY(0); }
+    70% { transform: translateX(-2px) translateY(-1px); }
+    80% { transform: translateX(2px) translateY(1px); }
+    90% { transform: translateX(-2px) translateY(0); }
+    100% { transform: translateX(0) translateY(0); }
 }
 
 .iphone.vibrate {
-    animation: vibrate 0.3s linear;
+    animation: vibrate 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; /* Added better timing function */
 }
+
+/* Media Queries untuk responsivitas */
+
+/* Perangkat kecil (ponsel dalam mode portrait) */
+@media only screen and (max-width: 576px) {
+    .iphone {
+      left: 40%;
+      transform: translateX(-50%);
+      top: 190px;
+      width: 150px;
+      height: 300px;
+    }
+    
+    .camera-notch {
+      width: 80px;
+      height: 18px;
+    }
+    
+    .notification {
+      top: 45px;
+      height: 50px;
+    }
+  }
+  
+  /* Perangkat medium (tablet dalam mode portrait) */
+  @media only screen and (min-width: 577px) and (max-width: 768px) {
+    .iphone {
+      left: 35%; /* Added missing left value */
+      top: 300px; /* Added missing top value */
+      width: 170px;
+      height: 330px;
+    }
+  }
+  
+  /* Perangkat besar (desktop dan laptop) */
+  @media only screen and (min-width: 769px) and (max-width: 1200px) {
+    .iphone {
+      left: 25%; /* Added missing left value */
+      top: 350px; /* Added missing top value */
+    }
+  }
+  
+  /* Perangkat sangat besar */
+  @media only screen and (min-width: 1201px) {
+    .iphone {
+      left: 20%; /* Added missing left value */
+      top: 408px; /* Added missing top value - same as original */
+      width: 180px;
+      height: 350px;
+    }
+  }
+  
+  /* Orientasi landscape */
+  @media only screen and (orientation: landscape) and (max-height: 500px) {
+    .iphone {
+      left: 50%; /* Added missing left value */
+      top: 100px; /* Added missing top value */
+      transform: translateX(-50%);
+      width: 140px;
+      height: 280px;
+    }
+    
+    .notification {
+      top: 40px;
+      height: 45px;
+    }
+    
+    .notification-title {
+      font-size: 9px;
+    }
+    
+    .notification-message {
+      font-size: 6px;
+    }
+  }
+  
+  /* Safari di iOS - perbaikan untuk masalah rendering tertentu */
+  @supports (-webkit-touch-callout: none) {
+    .notification {
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    
+    .camera-notch {
+      background: rgba(67, 65, 65, 0.337);
+    }
+    
+    /* Perbaikan untuk animasi di Safari iOS */
+    @keyframes notificationCycle {
+      0%, 20%, 40% {
+        -webkit-transform: translateY(-80px);
+        transform: translateY(-80px);
+        opacity: 0;
+      }
+      
+      1%, 21%, 41% {
+        -webkit-transform: translateY(-30px);
+        transform: translateY(-30px);
+        opacity: 0.5;
+      }
+      
+      2%, 22%, 42% {
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+        opacity: 0.9;
+      }
+      
+      3%, 10%, 23%, 30%, 43%, 50% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+      }
+      
+      11%, 31%, 51% {
+        -webkit-transform: translateY(-8px);
+        transform: translateY(-8px);
+        opacity: 0.7;
+      }
+      
+      12%, 32%, 52%, 100% {
+        -webkit-transform: translateY(-80px);
+        transform: translateY(-80px);
+        opacity: 0;
+      }
+    }
+  }

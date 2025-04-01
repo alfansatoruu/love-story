@@ -100,8 +100,12 @@ html, body {
     padding: 10%;
     position: relative;
     top: 0;
+
   }
   
+  #container .stacked-item {
+    grid-area: 1 / 1;
+}
   #svg {
     pointer-events: none;
     width: 100%;

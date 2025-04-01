@@ -1,0 +1,56 @@
+.container-gambar-me {
+    position: absolute;
+    left: 43%;
+    top: 80%;
+    z-index: 11;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    filter: drop-shadow(0 0 10px rgba(207, 204, 204, 0.244));
+    pointer-events: none;
+
+}
+
+.container-gambar-me svg {
+    width: 100%;
+    height: 100%;
+    fill: #e8e2e44c;
+}
+
+@media screen and (max-width: 991px) {
+    .container-gambar-me {
+        left: 46%;
+        width: 180px;
+        height: 180px;
+        top: 89%;
+    }
+}
+
+/* Small tablets and large phones */
+@media screen and (max-width: 767px) {
+    .container-gambar-me {
+        width: 150px;
+        height: 150px;
+        top: 85%;
+    }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 479px) {
+    .container-gambar-me {
+        width: 120px;
+        height: 120px;
+        top: 89.8%;
+        z-index: 3;
+       
+    }
+}
+
+/* Small mobile phones */
+@media screen and (max-width: 320px) {
+    .container-gambar-me {
+        width: 100px;
+        height: 100px;
+        top: 75%;
+    }
+}

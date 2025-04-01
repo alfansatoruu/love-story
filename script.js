@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Ensure ScrollTrigger is registered
   gsap.registerPlugin(ScrollTrigger);
 
-  // Select the parallax container
   const parallaxContainer = document.querySelector('[data-parallax-layers]');
-  
   if (!parallaxContainer) {
     console.error('Parallax container not found');
     return;
   }
+
+  // Ambil semua layer yang ada dan urutkan berdasarkan posisi Z-index
+  const layers = gsap.utils.toArray('[data-parallax-layer]').sort((a, b) => 
+    +window.getComputedStyle(a).zIndex - +window.getComputedStyle(b).zIndex
+  );
+
+  const yPercents = [70, 55, 40, 10]; // Nilai offset yang sama
 
   let tl = gsap.timeline({
     scrollTrigger: {
@@ -19,26 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const layers = [
-    { layer: "1", yPercent: 70 },
-    { layer: "2", yPercent: 55 },
-    { layer: "3", yPercent: 40 },
-    { layer: "4", yPercent: 10 }
-  ];
-
-  layers.forEach((layerObj, idx) => {
-    // Use more specific selector and log for debugging
-    const layerElements = parallaxContainer.querySelectorAll(`[data-parallax-layer="${layerObj.layer}"]`);
-    
-    if (layerElements.length === 0) {
-      console.warn(`No elements found for layer ${layerObj.layer}`);
-      return;
-    }
-
+  layers.forEach((layer, idx) => {
     tl.to(
-      layerElements,
+      layer,
       {
-        yPercent: layerObj.yPercent,
+        yPercent: yPercents[idx],
         ease: "none"
       },
       idx === 0 ? undefined : "<"
@@ -46,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Lenis smooth scrolling setup
+// Konfigurasi Lenis tetap sama
 const lenis = new Lenis();
 lenis.on('scroll', ScrollTrigger.update);
 gsap.ticker.add((time) => { lenis.raf(time * 1000); });
