@@ -322,71 +322,71 @@
     .iphone {
       left: 40%;
       transform: translateX(-50%);
-      top: 190px;
-      width: 150px;
-      height: 300px;
+      top: 185px; /* Reduced by 5px from 190px */
+      width: 145px; /* Reduced by 5px from 150px */
+      height: 295px; /* Reduced by 5px from 300px */
     }
     
     .camera-notch {
-      width: 80px;
-      height: 18px;
+      width: 75px; /* Reduced by 5px from 80px */
+      height: 13px; /* Reduced by 5px from 18px */
     }
     
     .notification {
-      top: 45px;
-      height: 50px;
+      top: 40px; /* Reduced by 5px from 45px */
+      height: 45px; /* Reduced by 5px from 50px */
     }
   }
   
   /* Perangkat medium (tablet dalam mode portrait) */
   @media only screen and (min-width: 577px) and (max-width: 768px) {
     .iphone {
-      left: 35%; /* Added missing left value */
-      top: 300px; /* Added missing top value */
-      width: 170px;
-      height: 330px;
+      left: 35%;
+      top: 295px; /* Reduced by 5px from 300px */
+      width: 165px; /* Reduced by 5px from 170px */
+      height: 325px; /* Reduced by 5px from 330px */
     }
   }
   
   /* Perangkat besar (desktop dan laptop) */
   @media only screen and (min-width: 769px) and (max-width: 1200px) {
     .iphone {
-      left: 25%; /* Added missing left value */
-      top: 350px; /* Added missing top value */
+      left: 25%;
+      top: 345px; /* Reduced by 5px from 350px */
     }
   }
   
   /* Perangkat sangat besar */
   @media only screen and (min-width: 1201px) {
     .iphone {
-      left: 20%; /* Added missing left value */
-      top: 408px; /* Added missing top value - same as original */
-      width: 180px;
-      height: 350px;
+      left: 20%;
+      top: 403px; /* Reduced by 5px from 408px */
+      width: 175px; /* Reduced by 5px from 180px */
+      height: 345px; /* Reduced by 5px from 350px */
     }
   }
   
   /* Orientasi landscape */
   @media only screen and (orientation: landscape) and (max-height: 500px) {
     .iphone {
-      left: 50%; /* Added missing left value */
-      top: 100px; /* Added missing top value */
+      left: 50%;
+      top: 95px; /* Reduced by 5px from 100px */
       transform: translateX(-50%);
-      width: 140px;
-      height: 280px;
+      width: 135px; /* Reduced by 5px from 140px */
+      height: 275px; /* Reduced by 5px from 280px */
     }
     
     .notification {
-      top: 40px;
-      height: 45px;
+      top: 35px; /* Reduced by 5px from 40px */
+      height: 40px; /* Reduced by 5px from 45px */
     }
     
     .notification-title {
-      font-size: 9px;
+      font-size: 9px; /* Same as before */
     }
     
     .notification-message {
-      font-size: 6px;
+      font-size: 6px; /* Same as before */
     }
   }
   
